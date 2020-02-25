@@ -1,0 +1,24 @@
+@mixin justifyCenter {
+    display: flex;
+    justify-content: center !important;
+}
+
+@mixin alignCenter {
+    display: flex;
+    align-items: center;
+}
+
+.maindiv {
+    @include alignCenter;
+    width: 80%;
+    height: 3rem;
+}
+
+.labeldiv {
+    margin-left: 1rem;
+    letter-spacing: .05rem;
+
+    & ion-label {
+        color: red;
+    }
+}
