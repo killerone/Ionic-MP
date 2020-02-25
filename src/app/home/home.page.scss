@@ -1,31 +1,66 @@
-#container {
-  text-align: center;
+@import './../../global.scss';
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+.lbl {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    letter-spacing: 0.2rem;
+    color: #ff7315;
+    font-weight: 700;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1.5rem;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.btn-submit {
+    letter-spacing: .2rem;
+    font-weight: 600;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.card-content-ios {
+    padding-top: 0px;
 }
 
-#container a {
-  text-decoration: none;
+.btn-group {
+    display: flex;
+    justify-content: center;
+    margin-top: .5rem;
 }
 
-ion-content ion-toolbar {
-  --background: translucent;
+
+ion-card {
+    --background: white;
+    padding: 0px;
+    height: 90%;
+    // margin-top: .7rem;
+}
+
+
+ion-content {
+    @include backgroundColor;
+}
+
+ion-item {
+    margin-top: 1rem;
+    height: 90% !important;
+
+    & ion-label {
+        --color: #404040 !important;
+        font-weight: 600;
+        letter-spacing: .05rem;
+    }
+
+
+}
+
+.text-danger {
+    color: red;
+}
+
+.label-error {
+    display: flex !important;
+    justify-content: space-around !important;
+}
+
+.invalid {
+    border-bottom: 1px solid red;
 }

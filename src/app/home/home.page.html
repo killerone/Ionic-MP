@@ -1,20 +1,91 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Registration
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+    <ion-label class="lbl">WELCOME ABOARD</ion-label>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <div style="margin-top: .2rem;">
+        <form #f="ngForm" (ngSubmit)="nextPage()">
+            <ion-card mode="ios">
+                <ion-card-content>
+                    <ion-item>
+                        <div class="label-error">
+                            <ion-label position="stacked">Name</ion-label>
+                            <small class="text-danger" *ngIf="usernames.touched && usernames.invalid">
+                                <div>*required</div>
+                            </small>
+                        </div>
+
+                        <ion-input #usernames="ngModel" [(ngModel)]="username" name="username"
+                            placeholder="e.g. Jon Dove" required
+                            [ngClass]="{'invalid': !usernames.valid && usernames.touched}">
+                        </ion-input>
+
+
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="label-error">
+                            <ion-label position="stacked">Email</ion-label>
+                            <small class="text-danger" *ngIf="emails.touched && emails.invalid">
+                                <div>*required</div>
+                            </small>
+                        </div>
+
+                        <ion-input #emails="ngModel" type="email" [(ngModel)]="email" name="email"
+                            placeholder="e.g. abc@example.com" required email
+                            [ngClass]="{'invalid': !emails.valid && emails.touched}">
+                        </ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <div class="label-error">
+                            <ion-label position="stacked">Address</ion-label>
+                            <small class="text-danger" *ngIf="addresss.touched && addresss.invalid">
+                                <div>*required</div>
+                            </small>
+                        </div>
+
+                        <ion-input #addresss="ngModel" [(ngModel)]="address" placeholder="e.g. Mumbai" name="address"
+                            required [ngClass]="{'invalid': !addresss.valid && addresss.touched}">
+                        </ion-input>
+                    </ion-item>
+                    <ion-item style="margin-top: 1.5rem;">
+                        <div class="label-error">
+                            <ion-label position="stacked">Date of Birth</ion-label>
+                            <small class="text-danger" *ngIf="dobs.touched && dobs.invalid">
+                                <div>*required</div>
+                            </small>
+                        </div>
+
+                        <ion-datetime #dobs="ngModel" name="dob" [(ngModel)]="dob" displayFormat="DD MMM YY"
+                        [max] = "currentDate"
+                            placeholder="e.g. 29 JAN 20" required [ngClass]="{'invalid': !dobs.valid && dobs.touched}">
+                        </ion-datetime>
+                    </ion-item>
+                </ion-card-content>
+            </ion-card>
+
+            <ion-grid style="margin-top: .2rem;">
+                <ion-row>
+                    <ion-col>
+                        <ion-button expand="block" color="danger" fill="outline" class="btn-submit"
+                            (click)="presentActionSheet()">
+                            CANCEL
+                        </ion-button>
+                    </ion-col>
+                    <ion-col>
+                        <ion-button [disabled]="!f.valid" expand="block" color="success" class="btn-submit"
+                            type="submit">
+                            SUBMIT</ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </form>
+    </div>
 </ion-content>
