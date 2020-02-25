@@ -1,20 +1,45 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
-      Blank
+      Profile
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content fullscreen>
+  <ion-card>
+    <img style="height: 20rem;" src="../../assets/istockphoto-476085198-612x612.jpg" />
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-card-header>
+      <ion-card-title>Himanshu Pednekar</ion-card-title>
+      <ion-card-subtitle>S.P.I.T. MCA</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content style="font-size: 1.2rem;">
+      A computer science enthusiast interested in learning new technologies.
+      <div class="flex">
+        <div class="box">
+          <ion-icon ios="logo-linkedin" md="logo-linkedin" style="color: #4169E1; height: 100%; width: 100%;">
+          </ion-icon>
+        </div>
+        <div class="box">
+          <ion-icon ios="logo-facebook" md="logo-facebook" style="color: #1E90FF;height: 100%; width: 100%;"></ion-icon>
+        </div>
+        <div class="box">
+          <ion-icon ios="logo-twitter" md="logo-twitter" style="color: #87CEFA;height: 100%; width: 100%;"></ion-icon>
+        </div>
+        <div class="box">
+          <ion-icon ios="logo-github" md="logo-github" style="color:#696969;height: 100%; width: 100%;"></ion-icon>
+        </div>
+      </div>
+      <div style="margin: 4rem;">
+        <ion-button fill="outline" mod="md" shape="round" style="width: 100% !important;"
+          (click)="presentActionSheet()">
+          Next
+        </ion-button>
+      </div>
+
+    </ion-card-content>
+
+  </ion-card>
+
 </ion-content>
