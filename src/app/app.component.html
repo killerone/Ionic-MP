@@ -1,3 +1,28 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" menuId="first" contentId="content1">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Navigate</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list style="margin-top: 1rem;">
+        <ion-menu-toggle auto-hide="false">
+          <ion-item lines="none" (click)="login()">
+            <ion-icon slot="start" name="log-in"></ion-icon>
+            <ion-label style="color: green; font-weight: 700;letter-spacing: 1px;">Log In</ion-label>
+          </ion-item>
+          <ion-item routerLink="/feedback" lines="none">
+            <ion-icon slot="start" name="pencil"></ion-icon>
+            <ion-label style="color: blue; font-weight: 700;letter-spacing: 1px;">Feedback</ion-label>
+          </ion-item>
+          <ion-item lines="none" (click)="exit()">
+            <ion-icon slot="start" name="power"></ion-icon>
+            <ion-label style="color: red; font-weight: 700;letter-spacing: 1px;">Exit</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="content1"></ion-router-outlet>
 </ion-app>

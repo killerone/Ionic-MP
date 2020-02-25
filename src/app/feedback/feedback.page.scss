@@ -1,0 +1,31 @@
+ion-card-content{
+    padding: 2px;
+}
+
+ion-label, ion-select{
+    color: black;
+}
+
+ion-select{
+    font-size: 15px;
+}
+
+input{
+    border: 0px ;
+    border-bottom: 1px solid #222;
+    width: 70%;
+}
+
+ion-button{
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    width: 70%;
+}
+.dropDown > ion-label{
+    padding: 0px;
+}
+
+.checkbox-label{
+    font-size: 15px;
+}
