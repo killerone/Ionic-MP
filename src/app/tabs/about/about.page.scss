@@ -1,0 +1,13 @@
+.upper{
+    height:35%;
+
+    & img{
+        height: 100%;
+        width: fit-content;
+    }
+}
+
+.lower{
+    margin-top: 1.5rem;
+    height:65%;
+}

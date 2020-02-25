@@ -1,0 +1,42 @@
+$primaryColor : #9d0b0b;
+
+p {
+    color: black;
+    padding: .6rem 1rem;
+}
+
+ion-list>div {
+    border: .4px solid #ccc;
+}
+
+ion-card-content {
+    padding: 0;
+    margin: 0;
+}
+
+ion-card-header {
+    color: $primaryColor;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+ion-icon {
+    height: 20px;
+    width: 40px;
+    font-weight: bold;
+}
+
+ion-button {
+    width: 85%;
+    letter-spacing: 1px;
+}
+
+.aligncenter {
+    display: flex;
+    justify-content: center;
+}

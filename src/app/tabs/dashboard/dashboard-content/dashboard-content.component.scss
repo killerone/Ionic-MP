@@ -1,0 +1,35 @@
+$primaryColor : #9d0b0b;
+
+@mixin justifyCenter {
+    display: flex;
+    justify-content: center !important;
+}
+
+@mixin alignCenter {
+    display: flex;
+    align-items: center;
+}
+
+.maindiv {
+    @include alignCenter;
+    height: 7rem;
+}
+
+.iconview {
+    @include justifyCenter;
+
+    & ion-icon {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+}
+
+.labeldiv {
+    @include justifyCenter;
+    margin-top: 1rem;
+    letter-spacing: .05rem;
+
+    & ion-label {
+        color: $primaryColor;
+    }
+}
