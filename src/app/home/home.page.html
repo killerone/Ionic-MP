@@ -1,20 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Http Client Demo
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- <ion-button>Click me</ion-button> -->
+  
+  <ion-list *ngFor="let user of users; let i = index" lines="none">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img [src]="user.avatar">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{user.first_name}} {{user.last_name}}</h2>
+        <p>{{user.email}}</p>
+      </ion-label>
+      <ion-avatar slot="end" (click)="deleteUser(i)">
+        <ion-icon name="trash-bin-outline"></ion-icon>
+      </ion-avatar>
+    </ion-item>
+
+
+  </ion-list>
 </ion-content>
