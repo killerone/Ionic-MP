@@ -1,7 +1,24 @@
-ion-icon{
+ion-icon[name="trash-bin-outline"] {
     color: red;
     justify-self: end;
     align-self: center;
     height: 1.2rem;
     width: 1.2rem;
+}
+
+ion-icon[name="person-add-outline"] {
+    justify-self: end;
+    align-self: center;
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+ion-fab {
+    color: wheat;
+}
+
+
+ion-fab-button {
+    height: 40px;
+    width: 40px;
 }

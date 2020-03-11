@@ -7,13 +7,42 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!-- <ion-button>Click me</ion-button> -->
-  
+
+  <!-- <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Add User</ion-card-subtitle>
+    </ion-card-header>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">First name</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Last name</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card> -->
+
   <ion-list *ngFor="let user of users; let i = index" lines="none">
 
     <ion-item>
       <ion-avatar slot="start">
-        <img [src]="user.avatar">
+        <img [src]="user.avatar || defaultImage">
       </ion-avatar>
       <ion-label>
         <h2>{{user.first_name}} {{user.last_name}}</h2>
@@ -23,7 +52,10 @@
         <ion-icon name="trash-bin-outline"></ion-icon>
       </ion-avatar>
     </ion-item>
-
-
   </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addUser()">
+      <ion-icon name="person-add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
