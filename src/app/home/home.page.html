@@ -1,43 +1,12 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Http Client Demo
+  <ion-toolbar color="warning">
+    <ion-title style="letter-spacing: 1px;">
+      USERS
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
-  <!-- <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Add User</ion-card-subtitle>
-    </ion-card-header>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-item>
-            <ion-label position="floating">First name</ion-label>
-            <ion-input></ion-input>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <ion-item>
-            <ion-label position="floating">Last name</ion-label>
-            <ion-input></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-item>
-            <ion-label position="floating">Email</ion-label>
-            <ion-input></ion-input>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card> -->
-
   <ion-list *ngFor="let user of users; let i = index" lines="none">
 
     <ion-item>

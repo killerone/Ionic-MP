@@ -29,17 +29,10 @@ export class HomePage {
   deleteUser(id) {
     const name = this.users[id].first_name + " " + this.users[id].last_name + " is deleted.";
     this.users.splice(id, 1);
-    this.presentToast(name);
+    this.presentToast(name, "danger");
   }
 
-  async presentToast(message: string) {
-    const toast = await this.toastController.create({
-      color: "danger",
-      message: message,
-      duration: 700
-    });
-    toast.present();
-  }
+
 
 
   async addUser() {
@@ -73,16 +66,26 @@ export class HomePage {
         }, {
           text: 'Add',
           handler: (data) => {
-            this.http.post(this.link, data).subscribe(res =>{
-              console.log(res);
-              this.users.unshift(data);
-            })
-            
+            this.users.unshift(data);
+            this.http.post(this.link, data).subscribe(res => {
+              this.presentToast("User added.", "success")
+            }, error => {
+              this.users.splice(0, 1);
+              this.presentToast("User not added.", "warning")
+            });
           }
         }
       ]
     });
 
     await alert.present();
+  }
+  async presentToast(message: string, color: string) {
+    const toast = await this.toastController.create({
+      color: color,
+      message: message,
+      duration: 900
+    });
+    toast.present();
   }
 }
