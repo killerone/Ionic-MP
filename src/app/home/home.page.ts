@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
-import { firestore } from 'firebase';
+
+interface Dish {
+  id: string,
+  imagePath: string,
+  name: string
+}
 
 @Component({
   selector: 'app-home',
@@ -9,9 +14,11 @@ import { firestore } from 'firebase';
 })
 export class HomePage {
 
+  Dishes: Dish[] = [];
+
   constructor(private fireStore: AngularFirestore) {
-    fireStore.collection("dish").valueChanges().subscribe(data => {
-      console.log(data);
+    fireStore.collection<Dish>("dish").valueChanges().subscribe(dishes => {
+      this.Dishes = dishes;
     })
   }
 

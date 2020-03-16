@@ -1,31 +1,37 @@
-#container {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display&display=swap");
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+ion-title {
+  letter-spacing: 1px;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-toolbar {
+  --background: #1eb2a6;
+  --color: #fff;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+ion-row {
+  display: flex;
+  justify-content: center;
+  padding: 1px;
+  margin-top: 1rem;
 
-  color: #8c8c8c;
-
-  margin: 0;
+  & ion-label {
+    font-size: large;
+    letter-spacing: 1px;
+    font-family: "PlayFair Display";
+    font-weight: 700;
+    margin-top: .2rem;
+  }
 }
 
-#container a {
-  text-decoration: none;
-}
+// .image-div{
+//   height: 70%;
+//   width: 70%;
+//   border: 1px;
+//   border-radius: 10rem;
 
-ion-content ion-toolbar {
-  --background: translucent;
-}
+//   & img{
+//     height: 100%;
+//     width: 100%;
+//   }
+// }
