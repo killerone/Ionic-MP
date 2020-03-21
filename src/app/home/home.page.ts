@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestore, DocumentChangeAction } from 'angularfire2/firestore';
+import { NavController } from '@ionic/angular';
 
 interface Dish {
   id: string,
@@ -14,12 +15,16 @@ interface Dish {
 })
 export class HomePage {
 
-  Dishes: Dish[] = [];
+  Dishes: DocumentChangeAction<Dish>[] = [];
 
-  constructor(private fireStore: AngularFirestore) {
-    fireStore.collection<Dish>("dish").valueChanges().subscribe(dishes => {
+  constructor(private fireStore: AngularFirestore, private navController: NavController) {
+    fireStore.collection<Dish>("dish").snapshotChanges().subscribe(dishes => {
       this.Dishes = dishes;
     })
+  }
+
+  navigate(id: string) {
+    this.navController.navigateForward("/dish/"+id);
   }
 
 }

@@ -8,12 +8,12 @@
 
 <ion-content [fullscreen]="true">
   <ion-grid>
-    <ion-row *ngFor="let dish of Dishes">
+    <ion-row *ngFor="let dish of Dishes" (click)="navigate(dish.payload.doc.id)">
       <div class="image-div">
-        <img [src]="dish.imagePath">
+        <img [src]="dish.payload.doc.get('imagePath')">
       </div>
 
-      <ion-label>{{dish.name}}</ion-label>
+      <ion-label>{{dish.payload.doc.get('name')}}</ion-label>
     </ion-row>
   </ion-grid>
 </ion-content>
