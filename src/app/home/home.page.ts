@@ -38,7 +38,7 @@ export class HomePage {
 
 
   downloadAndOpenLocalPdf() {
-    const downloadURL = "https://firebasestorage.googleapis.com/v0/b/furniture-shopping-0311.appspot.com/o/Angular2NotesForProfessionals.pdf?alt=media&token=1f0f0aff-3a4c-4c6c-aeb3-e66ff682ba34";
+    const downloadURL = "https://devdactic.com/html/5-simple-hacks-LBT.pdf"
     const path = this.file.dataDirectory;
     const transfer = this.ft.create();
 
