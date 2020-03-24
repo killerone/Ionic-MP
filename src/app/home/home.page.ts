@@ -32,9 +32,6 @@ export class HomePage {
     this.presentToast(name, "danger");
   }
 
-
-
-
   async addUser() {
     const alert = await this.alertController.create({
       header: 'Add User',
@@ -87,5 +84,52 @@ export class HomePage {
       duration: 900
     });
     toast.present();
+  }
+
+  async editUser(i) {
+    const alert = await this.alertController.create({
+      header: 'Add User',
+      inputs: [
+        {
+          name: 'first_name',
+          type: 'text',
+          value: this.users[i].first_name,
+          placeholder: 'First Name'
+        },
+        {
+          name: 'last_name',
+          type: 'text',
+          value: this.users[i].last_name,
+          placeholder: 'Last Name'
+        }, {
+          name: 'email',
+          type: 'email',
+          value: this.users[i].email,
+          placeholder: 'Email'
+        }
+
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Update',
+          handler: (data) => {
+            this.users[i].first_name = data.first_name;
+            this.users[i].last_name = data.last_name;
+            this.users[i].email = data.email;
+            console.log(this.users[i]);
+            this.presentToast("User updated.", "success")
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 }
