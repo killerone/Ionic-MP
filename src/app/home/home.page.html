@@ -1,19 +1,28 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Dishes
+      Registration
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-grid>
-    <ion-row *ngFor="let dish of Dishes" (click)="navigate(dish.payload.doc.id)">
-      <div class="image-div">
-        <img [src]="dish.payload.doc.get('imagePath')">
-      </div>
 
-      <ion-label>{{dish.payload.doc.get('name')}}</ion-label>
-    </ion-row>
-  </ion-grid>
+  <form #f="ngForm" (ngSubmit)="register(f.value)">
+    <ion-card>
+      <ion-row>
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input ngModel #email="ngModel" name="email" type="email" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input ngModel #password="ngModel" name="password" type="password" required></ion-input>
+        </ion-item>
+      </ion-row>
+    </ion-card>
+    <ion-button type="submit" expand="block">REGISTER</ion-button>
+  </form>
+
+
 </ion-content>
