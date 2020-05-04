@@ -1,14 +1,11 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Registration
-    </ion-title>
+    <ion-title>login</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-
-  <form #f="ngForm" (ngSubmit)="register(f.value)">
+<ion-content>
+  <form #f="ngForm" (ngSubmit)="login(f.value)">
     <ion-card>
       <ion-row>
         <ion-item>
@@ -21,8 +18,7 @@
         </ion-item>
       </ion-row>
     </ion-card>
-    <ion-button type="submit" expand="block">REGISTER</ion-button>
-    <ion-label>Already have account? Log in here</ion-label>
+    <ion-button type="submit" expand="block">Log in</ion-button>
   </form>
 
 </ion-content>
