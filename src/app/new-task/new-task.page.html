@@ -9,17 +9,23 @@
 
 <ion-content>
   <ion-row>
-    <img src="">
-    <ion-button>Change Picture</ion-button>
+    <img *ngIf="imgURL" class="card-img-top img-thumbnail" style="height: 15rem" [src]="imgURL">
+    <input #file style="display:none" name="image" id="image" type="file" (change)="preview(file.files)"
+      accept="image/*">
+    <ion-button (click)="file.click()">Change Picture</ion-button>
   </ion-row>
   <ion-row>
     <ion-item>
       <ion-label position="floating">Title</ion-label>
-      <ion-input ngModel #email="ngModel" name="title" type="text" required></ion-input>
+      <ion-input [(ngModel)]="title" #email="ngModel" name="title" type="text" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Description</ion-label>
-      <ion-input ngModel #email="ngModel" name="decription" type="text" required></ion-input>
+      <ion-input [(ngModel)]="description" #email="ngModel" name="decription" type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-button (click)="add()">Add</ion-button>
     </ion-item>
   </ion-row>
 

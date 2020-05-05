@@ -13,7 +13,7 @@ export class AuthService {
     this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password)
       .then(newuser => {
         console.log(newuser);
-        localStorage.setItem('user', newuser.user.email);
+        localStorage.setItem('user', newuser.user.uid);
         this.router.navigateByUrl("/task");
       });
   }
@@ -22,7 +22,7 @@ export class AuthService {
     this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password)
       .then(user => {
         console.log(user);
-        localStorage.setItem('user', user.user.email);
+        localStorage.setItem('user', user.user.uid);
         this.router.navigateByUrl("/task");
       });
   }
