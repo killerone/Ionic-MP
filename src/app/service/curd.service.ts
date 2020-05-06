@@ -1,4 +1,4 @@
-import { Task } from './../models/task';
+
 import { Injectable, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
@@ -36,8 +36,13 @@ export class CurdService implements OnInit {
     });
   }
 
-  getTaskAllTask() {
+  getAllTask() {
     const userid = localStorage.getItem('user');
     return this.afs.collection("users").doc(userid).collection("task");
+  }
+
+  getTask(id: string) {
+    const userid = localStorage.getItem('user');
+    return this.afs.collection("users").doc(userid).collection("task").doc(id);
   }
 }

@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { CurdService } from './../service/curd.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -12,11 +13,17 @@ export class NewTaskPage implements OnInit {
   title: string;
   description: string;
 
-  constructor(private curdService: CurdService) { }
+  task;
+
+  constructor(private curdService: CurdService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-
-    // console.log(title);
+    const id = this.route.snapshot.paramMap.get('id')
+    console.log(id);
+    this.curdService.getTask(id).snapshotChanges().subscribe(task => {
+      this.task = task;
+      console.log(task);
+    });
   }
 
   preview(files) {
@@ -32,7 +39,6 @@ export class NewTaskPage implements OnInit {
   }
 
   add() {
-
     this.curdService.addTask(this.title, this.description, this.imagePath);
   }
 

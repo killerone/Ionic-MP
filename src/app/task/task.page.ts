@@ -19,9 +19,12 @@ export class TaskPage implements OnInit {
     private curdService: CurdService) { }
 
   ngOnInit() {
-    this.curdService.getTaskAllTask().snapshotChanges().subscribe(tasks => {
+    this.curdService.getAllTask().snapshotChanges().subscribe(tasks => {
       
       this.tasks = tasks;
+      tasks.forEach(task =>{
+        console.log(task.payload.doc.id);
+      })
       // console.log(tasks);
     });
   }
