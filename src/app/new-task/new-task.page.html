@@ -1,55 +1,59 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="task"></ion-back-button>
     </ion-buttons>
-    <ion-title>Add Task</ion-title>
+    <ion-title style="letter-spacing: 1px;">ADD TASK</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div *ngIf="!task; else editTask">
-    <ion-row>
+  <div *ngIf="!title; else editTask">
+    <ion-row class="ion-justify-content-center">
       <img *ngIf="imgURL" class="card-img-top img-thumbnail" style="height: 15rem" [src]="imgURL">
       <input #file style="display:none" name="image" id="image" type="file" (change)="preview(file.files)"
         accept="image/*">
-      <ion-button (click)="file.click()">Change Picture</ion-button>
+      <ion-button class="btn-change-picture" (click)="file.click()">Change Picture</ion-button>
     </ion-row>
     <ion-row>
       <ion-item>
-        <ion-label position="floating">Title</ion-label>
-        <ion-input [(ngModel)]="title" #email="ngModel" name="title" type="text" required></ion-input>
+        <ion-label position="floating" color="primary" class="lbl">Title</ion-label>
+        <ion-input [(ngModel)]="title" #titles="ngModel" name="title" type="text" required></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Description</ion-label>
-        <ion-input [(ngModel)]="description" #email="ngModel" name="decription" type="text" required></ion-input>
+        <ion-label position="floating" color="primary" class="lbl">Description</ion-label>
+        <ion-input [(ngModel)]="description" #descriptions="ngModel" name="decription" type="text" required>
+        </ion-input>
       </ion-item>
-
-      <ion-item>
-        <ion-button (click)="add()">Add</ion-button>
-      </ion-item>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-button class="btn-add" fill="outline" (click)="add()">ADD</ion-button>
     </ion-row>
   </div>
   <ng-template #editTask>
-    <ion-row>
-      <img class="card-img-top img-thumbnail" style="height: 15rem" [src]="task.payload.doc.get("imagePath")>
+    <ion-row class="ion-justify-content-center">
+      <img style="height: 15rem" [src]="imgURL">
       <input #file style="display:none" name="image" id="image" type="file" (change)="preview(file.files)"
         accept="image/*">
-      <ion-button (click)="file.click()">Change Picture</ion-button>
+      <ion-button class="btn-change-picture" (click)="file.click()">Change Picture</ion-button>
     </ion-row>
     <ion-row>
       <ion-item>
-        <ion-label position="floating">Title</ion-label>
-        <ion-input [(ngModel)]="task.payload.doc.get("title")" #title="ngModel" name="title" type="text" required></ion-input>
+        <ion-label position="floating" color="primary" class="lbl">Title</ion-label>
+        <ion-input [(ngModel)]="title" #titles="ngModel" name="title" type="text" required></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-label position="floating">Description</ion-label>
-        <ion-input [(ngModel)]="task.payload.doc.get("description")" #description="ngModel" name="decription" type="text" required></ion-input>
+      <ion-item style="margin-top: 1rem;">
+        <ion-label position="floating" color="primary" class="lbl">Description</ion-label>
+        <ion-input [(ngModel)]="description" #descriptions="ngModel" name="decription" type="text" required></ion-input>
       </ion-item>
-
-      <ion-item>
-        <ion-button (click)="add()">Add</ion-button>
-      </ion-item>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button class="btn-add" (click)="update()">UPDATE</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button class="btn-update" (click)="delete()">DELETE</ion-button>
+      </ion-col>
     </ion-row>
   </ng-template>
 

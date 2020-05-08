@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Task</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title style="letter-spacing: 1px;">TASK</ion-title>
     <ion-label slot="end" (click)="logout()">
       <ion-icon name="log-out-outline"></ion-icon>
     </ion-label>
@@ -11,7 +11,7 @@
   <ion-grid>
     <ion-list *ngIf="tasks">
       <ion-card *ngFor="let task of tasks">
-        <ion-row>
+        <ion-row [routerLink]="['/new-task/', task.payload.doc.id]">
           <ion-col size="3">
             <div class="div-img">
               <img [src]="task.payload.doc.get('imagePath')">

@@ -1,0 +1,38 @@
+.btn-change-picture{
+    margin-top: 1rem;
+    border: 1px solid #3880ff;
+    height: 2rem;
+    letter-spacing: 1px;
+    border-radius: 9px;
+    --background: #fff;
+    --color: #3880ff;
+}
+
+.btn-change-picture :active{
+    --background: #fff !important;
+    --color: #3880ff !important;
+}
+
+.btn-add{
+    margin-top: 1.5rem;
+    letter-spacing: 1px;
+    width: 90%;
+    height: 2rem;
+    font-weight: 600;
+    --background: #fff;
+    --color: #3880ff;
+}
+
+.btn-update{
+    margin-top: 1.5rem;
+    letter-spacing: 1px;
+    width: 90%;
+    height: 2rem;
+    font-weight: 600;
+    --background: #fff;
+    --color: #b80f0a;
+}
+
+.lbl{
+    letter-spacing: 1px;
+}

@@ -3,7 +3,7 @@ import { AuthService } from './../service/auth.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
-interface Task{
+interface Task {
 
 }
 @Component({
@@ -20,9 +20,9 @@ export class TaskPage implements OnInit {
 
   ngOnInit() {
     this.curdService.getAllTask().snapshotChanges().subscribe(tasks => {
-      
+
       this.tasks = tasks;
-      tasks.forEach(task =>{
+      tasks.forEach(task => {
         console.log(task.payload.doc.id);
       })
       // console.log(tasks);

@@ -9,13 +9,14 @@ const routes: Routes = [
     loadChildren: () => import('./new-task/new-task.module').then(m => m.NewTaskPageModule)
   },
   {
-    path: 'task',
-    loadChildren: () => import('./task/task.module').then(m => m.TaskPageModule)
-  },
-  {
     path: 'new-task',
     loadChildren: () => import('./new-task/new-task.module').then(m => m.NewTaskPageModule)
   },
+  {
+    path: 'task',
+    loadChildren: () => import('./task/task.module').then(m => m.TaskPageModule)
+  },
+
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)

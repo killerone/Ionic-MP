@@ -7,7 +7,6 @@ import { AngularFireStorage } from '@angular/fire/storage';
   providedIn: 'root'
 })
 export class CurdService implements OnInit {
-  userid;
 
   constructor(private afs: AngularFirestore,
     private storage: AngularFireStorage) { }
@@ -44,5 +43,10 @@ export class CurdService implements OnInit {
   getTask(id: string) {
     const userid = localStorage.getItem('user');
     return this.afs.collection("users").doc(userid).collection("task").doc(id);
+  }
+
+  deleteTask(id: string) {
+    const userid = localStorage.getItem('user');
+    return this.afs.collection("users").doc(userid).collection("task").doc(id).delete();
   }
 }

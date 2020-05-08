@@ -1,6 +1,7 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CurdService } from './../service/curd.service';
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-new-task',
@@ -13,17 +14,24 @@ export class NewTaskPage implements OnInit {
   title: string;
   description: string;
 
-  task;
 
-  constructor(private curdService: CurdService, private route: ActivatedRoute) { }
+  constructor(
+    private curdService: CurdService,
+    private route: ActivatedRoute,
+    private toastController: ToastController,
+    private router: Router) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id')
-    console.log(id);
-    this.curdService.getTask(id).snapshotChanges().subscribe(task => {
-      this.task = task;
-      console.log(task);
-    });
+    if (id) {
+      this.curdService.getTask(id).snapshotChanges().subscribe(task => {
+        this.title = task.payload.get("title");
+        this.description = task.payload.get("description");
+        this.imgURL = task.payload.get("imagePath");
+        console.log(task);
+      });
+    }
+
   }
 
   preview(files) {
@@ -39,7 +47,30 @@ export class NewTaskPage implements OnInit {
   }
 
   add() {
-    this.curdService.addTask(this.title, this.description, this.imagePath);
+    // this.curdService.addTask(this.title, this.description, this.imagePath);
+    this.presentToast("Task Added..", "success");
+    this.router.navigateByUrl("/task");
+  }
+
+  update() {
+    // this.curdService.addTask(this.title, this.description, this.imagePath);
+    this.presentToast("Task Updated..", "warning");
+    this.router.navigateByUrl("/task");
+  }
+
+  delete() {
+    // this.curdService.addTask(this.title, this.description, this.imagePath);
+    this.presentToast("Task Deleted..", "danger");
+    this.router.navigateByUrl("/task");
+  }
+
+  async presentToast(message: string, color: string) {
+    const toast = await this.toastController.create({
+      color: color,
+      message: message,
+      duration: 900
+    });
+    toast.present();
   }
 
 }
