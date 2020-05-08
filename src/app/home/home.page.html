@@ -1,28 +1,39 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
+  <ion-toolbar color="primary">
+    <ion-title style="letter-spacing: 1.2px;">
       Registration
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" style="margin-top: 2rem;">
 
   <form #f="ngForm" (ngSubmit)="register(f.value)">
     <ion-card>
       <ion-row>
         <ion-item>
-          <ion-label position="floating">Email</ion-label>
+          <ion-label color="primary"  position="floating">Name</ion-label>
+          <ion-input ngModel #name="ngModel" name="name" type="text" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary"  position="floating">Email</ion-label>
           <ion-input ngModel #email="ngModel" name="email" type="email" required></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating">Password</ion-label>
+          <ion-label color="primary"  position="floating">Password</ion-label>
           <ion-input ngModel #password="ngModel" name="password" type="password" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary"  position="floating">Mobile number</ion-label>
+          <ion-input ngModel #mobile="ngModel" name="mobile" type="number" required></ion-input>
         </ion-item>
       </ion-row>
     </ion-card>
-    <ion-button type="submit" expand="block">REGISTER</ion-button>
-    <ion-label>Already have account? Log in here</ion-label>
+    <ion-button class="btn-submit" type="submit" expand="block">REGISTER</ion-button>
+    <ion-row class="ion-justify-content-center">
+      <ion-label>Already have account? <span routerLink='/login/'>Log in</span> here</ion-label>
+    </ion-row>
+
   </form>
 
 </ion-content>

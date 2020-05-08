@@ -1,3 +1,4 @@
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -7,13 +8,15 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class AuthService {
 
-  constructor(private afAuth: AngularFireAuth, private router: Router) { }
+  constructor(private afs: AngularFirestore,
+    private afAuth: AngularFireAuth,
+    private router: Router) { }
 
   register(user) {
     this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password)
-      .then(newuser => {
-        console.log(newuser);
+      .then(async newuser => {
         localStorage.setItem('user', newuser.user.uid);
+        await this.afs.collection("users").doc(newuser.user.uid).set({ name: user.name, mobile: user.mobile })
         this.router.navigateByUrl("/task");
       });
   }

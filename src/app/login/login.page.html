@@ -1,24 +1,27 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title style="letter-spacing: 1.2px;">Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content style="margin-top: 2rem !important;">
   <form #f="ngForm" (ngSubmit)="login(f.value)">
     <ion-card>
       <ion-row>
         <ion-item>
-          <ion-label position="floating">Email</ion-label>
+          <ion-label color="primary" position="floating">Email</ion-label>
           <ion-input ngModel #email="ngModel" name="email" type="email" required></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="floating">Password</ion-label>
+          <ion-label color="primary" position="floating">Password</ion-label>
           <ion-input ngModel #password="ngModel" name="password" type="password" required></ion-input>
         </ion-item>
       </ion-row>
     </ion-card>
-    <ion-button type="submit" expand="block">Log in</ion-button>
+    <ion-button class="btn-submit" type="submit" expand="block">Log in</ion-button>
+    <ion-row class="ion-justify-content-center">
+      <ion-label>New here? <span routerLink='/home/'>Register</span> here</ion-label>
+    </ion-row>
   </form>
 
 </ion-content>

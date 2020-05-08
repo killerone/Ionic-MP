@@ -13,6 +13,7 @@ export class NewTaskPage implements OnInit {
   imagePath: File;
   title: string;
   description: string;
+  taskId: string;
 
 
   constructor(
@@ -23,6 +24,7 @@ export class NewTaskPage implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id')
+    this.taskId = id;
     if (id) {
       this.curdService.getTask(id).snapshotChanges().subscribe(task => {
         this.title = task.payload.get("title");
@@ -31,7 +33,30 @@ export class NewTaskPage implements OnInit {
         console.log(task);
       });
     }
+  }
 
+  async add() {
+    await this.curdService.addTask(this.title, this.description, this.imagePath);
+
+    this.presentToast("Task Added..", "success");
+    this.router.navigateByUrl("/task");
+  }
+
+  async update() {
+    if (!this.imagePath)
+      await this.curdService.updateTask(this.taskId, this.title, this.description, null);
+    else
+      await this.curdService.updateTask(this.taskId, this.title, this.description, this.imagePath);
+
+    this.presentToast("Task Updated..", "warning");
+    this.router.navigateByUrl("/task");
+  }
+
+  delete() {
+    this.curdService.deleteTask(this.taskId);
+
+    this.presentToast("Task Deleted..", "danger");
+    this.router.navigateByUrl("/task");
   }
 
   preview(files) {
@@ -44,24 +69,6 @@ export class NewTaskPage implements OnInit {
     reader.onload = (_event) => {
       this.imgURL = reader.result;
     }
-  }
-
-  add() {
-    // this.curdService.addTask(this.title, this.description, this.imagePath);
-    this.presentToast("Task Added..", "success");
-    this.router.navigateByUrl("/task");
-  }
-
-  update() {
-    // this.curdService.addTask(this.title, this.description, this.imagePath);
-    this.presentToast("Task Updated..", "warning");
-    this.router.navigateByUrl("/task");
-  }
-
-  delete() {
-    // this.curdService.addTask(this.title, this.description, this.imagePath);
-    this.presentToast("Task Deleted..", "danger");
-    this.router.navigateByUrl("/task");
   }
 
   async presentToast(message: string, color: string) {

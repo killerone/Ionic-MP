@@ -8,12 +8,12 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="!title; else editTask">
+  <div *ngIf="!taskId; else editTask">
     <ion-row class="ion-justify-content-center">
       <img *ngIf="imgURL" class="card-img-top img-thumbnail" style="height: 15rem" [src]="imgURL">
       <input #file style="display:none" name="image" id="image" type="file" (change)="preview(file.files)"
         accept="image/*">
-      <ion-button class="btn-change-picture" (click)="file.click()">Change Picture</ion-button>
+      <ion-button class="btn-change-picture" (click)="file.click()">Add Picture</ion-button>
     </ion-row>
     <ion-row>
       <ion-item>
