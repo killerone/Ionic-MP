@@ -4,7 +4,15 @@
 
 export const environment = {
   production: false,
-  // atleast, insert your own firebase credential 🤦🏻‍♂️
+  firsbaseConfig: {
+    apiKey: "AIzaSyAaPRbLmBddflWEO1qrAvF9klAFafFTsMo",
+    authDomain: "mplab-2020.firebaseapp.com",
+    databaseURL: "https://mplab-2020.firebaseio.com",
+    projectId: "mplab-2020",
+    storageBucket: "mplab-2020.appspot.com",
+    messagingSenderId: "346232266014",
+    appId: "1:346232266014:web:77fea93aaf8c2f44cbfd0f"
+  }
 };
 /*
  * For easier debugging in development mode, you can import the following file
