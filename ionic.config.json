@@ -1,5 +1,7 @@
 {
-  "name": "Ionic-MP",
-  "integrations": {},
+  "name": "CalCam",
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
