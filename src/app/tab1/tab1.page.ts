@@ -1,5 +1,6 @@
+import { OtherPage } from './../other/other.page';
 import { Component, ViewChild, OnInit, LOCALE_ID, Inject } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { formatDate } from '@angular/common';
 import { CalendarComponent } from 'ionic2-calendar/calendar';
 
@@ -8,8 +9,12 @@ import { CalendarComponent } from 'ionic2-calendar/calendar';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page implements OnInit{
+export class Tab1Page implements OnInit {
 
+  minDate = new Date().toISOString();
+
+  eventSource = [];
+  viewTitle;
   event = {
     title: '',
     desc: '',
@@ -18,19 +23,15 @@ export class Tab1Page implements OnInit{
     allDay: false
   };
 
-  minDate = new Date().toISOString();
-
-  eventSource = [];
-  viewTitle;
-
   calendar = {
     mode: 'month',
     currentDate: new Date(),
+    currentDay:new Date().getDate()
   };
 
   @ViewChild(CalendarComponent) myCal: CalendarComponent;
 
-  constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string) { }
+  constructor(private alertCtrl: AlertController, @Inject(LOCALE_ID) private locale: string, public modalController: ModalController) { }
 
   ngOnInit() {
     this.resetEvent();
@@ -47,27 +48,7 @@ export class Tab1Page implements OnInit{
   }
 
   // Create the right event format and reload source
-  addEvent() {
-    let eventCopy = {
-      title: this.event.title,
-      startTime: new Date(this.event.startTime),
-      endTime: new Date(this.event.endTime),
-      allDay: this.event.allDay,
-      desc: this.event.desc
-    }
 
-    if (eventCopy.allDay) {
-      let start = eventCopy.startTime;
-      let end = eventCopy.endTime;
-
-      eventCopy.startTime = new Date(Date.UTC(start.getUTCFullYear(), start.getUTCMonth(), start.getUTCDate()));
-      eventCopy.endTime = new Date(Date.UTC(end.getUTCFullYear(), end.getUTCMonth(), end.getUTCDate() + 1));
-    }
-
-    this.eventSource.push(eventCopy);
-    this.myCal.loadEvents();
-    this.resetEvent();
-  }
 
   // Change current month/week/day
   next() {
@@ -116,6 +97,23 @@ export class Tab1Page implements OnInit{
     this.event.startTime = selected.toISOString();
     selected.setHours(selected.getHours() + 1);
     this.event.endTime = (selected.toISOString());
+  }
+
+  async addUser() {
+    const modal = await this.modalController.create({
+      component: OtherPage
+    });
+    await modal.present();
+    const res = await modal.onWillDismiss();
+    console.log(res);
+  
+    if (res.data) {
+      const eventCopy = res.data.eventCopy;
+      this.eventSource.push(eventCopy);
+      this.myCal.loadEvents();
+      this.resetEvent();
+    }
+
   }
 
 }

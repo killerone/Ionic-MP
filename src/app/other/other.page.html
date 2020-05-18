@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>New Event</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card class="ion-margin-top">
+    <ion-card-content>
+      <ion-item>
+        <ion-input type="text" placeholder="Title" [(ngModel)]="event.title"></ion-input>
+      </ion-item>
+      <ion-item class="ion-margin-top">
+        <ion-input type="text" placeholder="Description" [(ngModel)]="event.desc"></ion-input>
+      </ion-item>
+      <ion-item class="ion-margin-top">
+        <ion-label>Start</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="event.startTime"
+          [min]="minDate"></ion-datetime>
+      </ion-item>
+      <ion-item class="ion-margin-top">
+        <ion-label>End</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY HH:mm" pickerFormat="MMM D:HH:mm" [(ngModel)]="event.endTime"
+          [min]="minDate"></ion-datetime>
+      </ion-item>
+      <ion-item class="ion-margin-top">
+        <ion-label>All Day?</ion-label>
+        <ion-checkbox [(ngModel)]="event.allDay"></ion-checkbox>
+      </ion-item>
+      <ion-button fill="outline" class="btn-add ion-margin-top" expand="block" (click)="addEvent()"
+        [disabled]="event.title == ''">ADD EVENT
+      </ion-button>
+      <ion-button expand="block" class="btn-add ion-margin-top" (click)="dismiss()">CANCEL
+      </ion-button>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

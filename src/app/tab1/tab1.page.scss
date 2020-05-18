@@ -1,0 +1,31 @@
+.monthview-current{ color: red !important;}
+
+ion-toolbar{
+    --background:#e76f51;
+}
+ion-title{
+    letter-spacing: 0.8px;
+    font-size: large;
+}
+
+ion-grid{
+    margin-top: 1rem;
+}
+
+ion-fab {
+    color: wheat;
+}
+ion-fab > ion-fab-button {
+    margin: 0 auto;
+    color: wheat;
+}
+
+ion-fab-button {
+    height: 40px;
+    width: 40px;
+}
+
+.current-date{
+    font-weight: 700;
+    font-size: 1rem;
+}
