@@ -1,16 +1,16 @@
 # Ionic-MP
-> Practical 1 : Profile-Page
+> Practical 1 : [Profile-Page](https://github.com/killerone/Ionic-MP/tree/Profile-Page)
 
-> Practical 2 : registration
+> Practical 2 : [Registration](https://github.com/killerone/Ionic-MP/tree/registration)
 
-> Practical 3 : SPIT
+> Practical 3 : [SPIT App](https://github.com/killerone/Ionic-MP/tree/SPIT)
 
-> Practical 4 : SPIT-SideMenu
+> Practical 4 : [SideMenu](https://github.com/killerone/Ionic-MP/tree/SPIT-SideMenu)
 
-> Practical 5 : FileUpload
+> Practical 5 : [FileUpload](https://github.com/killerone/Ionic-MP/tree/FileUpload)
 
-> Practical 6 : CameraCalender
+> Practical 6 : [Camera & Calender](https://github.com/killerone/Ionic-MP/tree/CameraCalender)
 
-> Practical 7 : Http
+> Practical 7 : [Http](https://github.com/killerone/Ionic-MP/tree/Http)
 
-> Practical 8 : FirebaseConnectivity
+> Practical 8 : [Firebase](https://github.com/killerone/Ionic-MP/tree/FirebaseConnectivity)
